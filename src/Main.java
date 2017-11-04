@@ -1,6 +1,4 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -13,25 +11,14 @@ public class Main {
     int move;
     int betrayal = 0;
     int cooperation = 0;
-    int comparison = 0;
     int coop = 2;
     int betray = 1;
-    char decision;
+    int decision = 1;
+    int yes = 1;
+    int no = 2;
 
-    System.out.println("Escolha sua tática:\n"
-        + " 0-Não iterado\n"
-        + " 1-Olho por olho\n"
-        + " 2-Olho por 2 olhos\n"
-        + " 3-Provador ingenuo\n"
-        + " 4-Retaliador Permanente\n"
-        + " 5-Finalizar Jogada\n");
-
-    choice = read.nextInt();
-
-    System.out.println("Sua estratégia é:" + choice);
-
-    if (choice > 5 || choice < 0) {
-      System.out.println("Escolha inválida. Escolha novamente:\n"
+    while (decision == yes) {
+      System.out.println("Escolha sua tática:\n"
           + " 0-Não iterado\n"
           + " 1-Olho por olho\n"
           + " 2-Olho por 2 olhos\n"
@@ -40,74 +27,87 @@ public class Main {
           + " 5-Finalizar Jogada\n");
 
       choice = read.nextInt();
-      System.out.println("Sua estratégia é:" + choice);
-    }
-    while (choice != 5) {
-      System.out.println("Escolha sua jogada:\n"
-          + "1- Trair\n"
-          + "2- Cooperar\n");
+      System.out.println("Sua estrat\u00e9gia \u00e9:" + choice);
 
-      move = read.nextInt();
+      decision = no;
 
-      if (choice == 1) {
-        System.out.println("Jogada Você: " + move);
+      while (decision == no) {
+          choice = read.nextInt();
 
-        System.out.println("Jogada Comparsa: " + move);
-        if (move == 1) {
-          cooperation++;
-        } else {
-          betrayal++;
+          System.out.println("Sua estrat\u00e9gia \u00e9:" + choice);
         }
+        while (choice != 5) {
+          System.out.println("Escolha sua jogada:\n"
+              + "1- Trair\n"
+              + "2- Cooperar\n");
 
+          move = read.nextInt();
 
-      } else if (choice == 2) {
-
-         if (betrayal < 2) {
-
-          System.out.println("Jogada Você: " + move);
-
-          System.out.println("Jogada Comparsa: " + coop);
-
-          if (move == 1)
-            betrayal++;
-          else if (move == 2)
-            cooperation++;
-
-          System.out.println("cooperar: "+ cooperation + "trair: " + betrayal);
-
-          } else if (betrayal >= 2){
-
-           System.out.println("cooperar: " + cooperation + "trair: " + betrayal);
-           betrayal++;
-
-           System.out.println(cooperation + betrayal);
-         }
-
-      } else if (choice == 3) {
-        //provador ingenuo
-      } else if(choice == 4){
-        //retaliador permanente
-        if (move == 2){
-          System.out.println("Jogada Comparsa: " + coop);
-          cooperation++;
+          switch (choice) {
+            case (1):
+              System.out.println("Jogada Voc\u00ea: " + move);
+              System.out.println("Jogada Comparsa: " + move);
+              switch (move) {
+                case (2):
+                  cooperation++;
+                  break;
+                case (1):
+                  betrayal++;
+                  break;
+              }
+              break;
+            case (2):
+              if (betrayal < 2) {
+                System.out.println("Jogada Voc\u00ea: " + move);
+                System.out.println("Jogada Comparsa: " + coop);
+              } else if (betrayal >= 2) {
+                System.out.println("Jogada Voc\u00ea: " + move);
+                System.out.println("Jogada Comparsa: " + betray);
+                betrayal++;
+              }
+              switch (move) {
+                case (1):
+                  betrayal++;
+                  break;
+                case (2):
+                  cooperation++;
+                  break;
+              }
+              break;
+            case (3):
+              //provador ingênuo
+              System.out.println("Jogada Voc\u00ea: " + move);
+              int comparsa;
+              comparsa = (int) (1 + Math.random() * 2);
+              System.out.println("Jogada Voc\u00ea: " + comparsa);
+              break;
+            case (4):
+              //permanent retaliation
+              switch (move) {
+                case (2):
+                  System.out.println("Jogada Voc\u00ea: " + move);
+                  System.out.println("Jogada Comparsa: " + coop);
+                  cooperation++;
+                  break;
+                case (1):
+                  System.out.println("Jogada Comparsa: " + betray);
+                  betrayal++;
+                  break;
+              }
+            case(5):
+              System.out.println("Total de coop:" + cooperation + "total de traições:" + betrayal);
+              break;
+            default:
+              System.out.println("Insira uma estrat\u00e9gia v\u00e1lida!");
+          }
+          System.out.println("Voc\u00ea deseja mudar de estrat\u00e9gia?\n"
+              + " 1-Sim ou 2-N\u00e3o? ");
+          decision = read.nextInt();
         }
-        System.out.println("Jogada Comparsa: " + betray);
-        betrayal++;
       }
-
-      System.out.println("Voc\u00ea deseja mudar de estrat\u00e9gia?\n"
-          + "Insira S - Sim, N - N\u00e3o");
-
-      decision = read.next(".").charAt(0);
-
-
-
-
-
     }
-
-    System.out.println("Traições: " + betrayal + "\nCooperações: " + cooperation);
-
+    /*break;*/
   }
-}
+
+
 
