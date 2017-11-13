@@ -247,7 +247,7 @@ public class Main {
               comparsa = 1;
             }
 
-            if (res == 0 || res == 1) {//teste para ver se digitou corretamente
+            if (res == 2 || res == 1) {//teste para ver se digitou corretamente
 
               int retorno = mensagens(res, comparsa, coopXcoop, trairXtrair, trairXcoop);
               switch (retorno) {
