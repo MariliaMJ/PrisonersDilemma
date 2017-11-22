@@ -52,11 +52,11 @@ public class Main {
       switch (choice) {
         case 0:
 
-          boolean case0 = true;
+          boolean caseZero = true;
 
           System.out.println("Sua estratégia é: OLHO POR OLHO\n");
 
-          while (case0) {
+          while (caseZero) {
             //começar escrever o que fazer
             System.out.println("\n\n\n1 = Trair ou 2 = Cooperar: \n");
             res = read.nextInt();
@@ -162,11 +162,11 @@ public class Main {
         case 2:
           System.out.println("Sua estratégia é: OLHO POR DOIS OLHOS\n");
 
-          boolean case2 = true;
+          boolean caseTwo = true;
           int repetida = 2; //quantidade de vezes que for igual a res
           int turn = 0;
 
-          while (case2) {
+          while (caseTwo) {
             //começar escrever o que fazer
             System.out.println("\n\n\n1 = Trair ou 2 = Cooperar: ");
             res = read.nextInt();//res = read.nextInt();
@@ -232,11 +232,11 @@ public class Main {
         case 3:
           System.out.println("Sua estratégia é: PROVADOR INGÊNUO\n");//estrategia
 
-          boolean case3 = true;
+          boolean caseThree = true;
 
           comparsa = (int) (1 + Math.random() * 2);
 
-          while (case3) {
+          while (caseThree) {
             //começar escrever o que fazer
             System.out.println("\n\n\n1 = Trair ou 2 = Cooperar: \n");
             res = read.nextInt();
@@ -293,11 +293,11 @@ public class Main {
         case 4:
           System.out.println("Sua estratégia é: RETALIADOR PERMANENTE");//estrategia
 
-          boolean case4 = true;
+          boolean caseFour = true;
 
           comparsa = 0;
 
-          while (case4) {
+          while (caseFour) {
             //começar escrever o que fazer
             System.out.println("\n\n\n1 = Trair ou 2 = Cooperar: \n");
             res = read.nextInt();
@@ -349,7 +349,6 @@ public class Main {
 
         case 5:
           System.out.println("\n\n");
-          System.out.println("Jogador: " + nome);
           System.out.println("Foram jogadas " + i + " rodadas");
           System.out.println("\n");
           System.out.println(trairXtrair * 100 / i + "% das vezes ocorreu TRAIR X TRAIR");
