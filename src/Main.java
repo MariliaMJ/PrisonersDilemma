@@ -1,3 +1,9 @@
+
+/*FERNANDO WILSON FARIAS SILVA JUNIOR RA.: 21039235*/
+/*NATHAN VINÍCIUS CASSIMIRO NEVES     RA.: 21040584*/
+/*MARÍLIA MURARO JANIZELLI            RA.: 21041255*/
+/*LUIZ EDUARDO LASCALA ROCHA BARBOSA  RA.: 21038447*/
+
 import java.util.Scanner;
 
 public class Main {
@@ -86,7 +92,7 @@ public class Main {
                   //continua a estrategia
                 } else if (estrategia.equals("N") || estrategia.equals("n")) {
                   System.out.println("trocar estrategia");
-                  case0 = false;//trocar estrategia
+                  caseZero = false;//trocar estrategia
                   err = false;
                 } else {
                   System.out.println("Digitou algo errado. Tente novamente!");
@@ -202,7 +208,7 @@ public class Main {
               System.out.println("------------------------------");
 
               repetida = res;
-  
+
               do {
                 System.out.println("\nDeseja continuar com a estratégia? (s/n)");
                 estrategia = read.next();
@@ -211,7 +217,7 @@ public class Main {
                   //continua a estrategia
                 } else if (estrategia.equals("N") || estrategia.equals("n")) {
                   System.out.println("trocar estrategia");
-                  case2 = false;//trocar estrategia
+                  caseTwo = false;//trocar estrategia
                   err = false;
                 } else {
                   System.out.println("Digitou algo errado. Tente novamente!");
@@ -240,6 +246,10 @@ public class Main {
             //começar escrever o que fazer
             System.out.println("\n\n\n1 = Trair ou 2 = Cooperar: \n");
             res = read.nextInt();
+
+            /*Ou seja, jogador
+            coopera ou trai de acordo com as ações do jogador, mas trai de forma
+            aleatória.*/
 
             if (Math.random() * 100 < 69) {//70% de chance de continuar olho por olho (copiar a escolha)
               comparsa = res;
@@ -271,7 +281,7 @@ public class Main {
                   //continua a estrategia
                 } else if (estrategia.equals("N") || estrategia.equals("n")) {
                   System.out.println("trocar estrategia");
-                  case3 = false;//trocar estrategia
+                  caseThree = false;//trocar estrategia
                   err = false;
                 } else {
                   System.out.println("Digitou algo errado. Tente novamente!");
@@ -329,7 +339,7 @@ public class Main {
                   err = false;
                   //continua a estrategia
                 } else if (estrategia.equals("N") || estrategia.equals("n")) {
-                  case4 = false;//trocar estrategia
+                  caseFour = false;//trocar estrategia
                   err = false;
                 } else {
                   System.out.println("Digitou algo errado. Tente novamente!");
@@ -385,7 +395,7 @@ public class Main {
     System.out.println(trairXtrair * 100 / i + "% das vezes ocorreu TRAIR X TRAIR");
     System.out.println(coopXcoop * 100 / i + "% das vezes ocorreu COOPERAR X COOPERAR");
     System.out.println(trairXcoop * 100 / i + "% das vezes ocorreu TRAIR X COOPERAR");
-    }
+  }
 
   public static int mensagens(int res, int comparsa, int coopXcoop, int trairXtrair, int trairXcoop) {
     if (res == 2 && comparsa == 2) {
