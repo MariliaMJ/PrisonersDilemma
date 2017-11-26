@@ -46,7 +46,7 @@ public class Main {
 
         choice = read.nextInt();//read estrategia do jogador
 
-        if (choice != 0 && choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5) {
+        if (choice < 0 || choice > 5) {
           err = true;
           System.out.println("\n\nINSIRA UMA OPÇÃO VÁLIDA\n\n");
         } else {
